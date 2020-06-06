@@ -69,7 +69,7 @@ class Review extends Component {
                             </div>
                             <div className="response">
                                 <div className="response-text">Was This Review Helpful?</div>
-                                <div className="response-value">
+                                <div onClick={this.props.data.modalShow} className="response-value unselectable">
                                     Responses ({this.props.data.responseNumber})
                                                   </div>
                             </div>

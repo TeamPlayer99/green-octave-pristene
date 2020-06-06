@@ -6,6 +6,7 @@ import Review from './review';
 import Feedbacks from './feedback';
 import AboutUs from './about-us';
 import Gallery from './gallery';
+import Response from './response';
 
 var reviewData = {
   name: "Abdulgafar Jagun",
@@ -16,8 +17,22 @@ var reviewData = {
   reviewRating: "1.5",
   reviewText: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
   responseNumber: "20",
+  responses: [{
+    name: "Abdulgafar Jagun",
+    text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+  },
+  {
+    name: "Ik Ummuna",
+    text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+  },
+  {
+    name: "Sam Akwe",
+    text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+  }],
   likes: "15",
   disLikes: "5",
+  modalShow: {},
+  modalClose: {},
   feedBackData: [
     {
       name: "Abdulgafar Jagun",
@@ -44,7 +59,8 @@ class App extends Component {
 
 state = {
   activePage: 'review',
-  data: reviewData
+  data: reviewData,
+  modal: 'none'
 };
 
 getClicked = (clicked) => {
@@ -56,6 +72,19 @@ getClicked = (clicked) => {
   });
 };
 
+showModal = () => {
+  this.setState({
+    modal: 'block'
+  });
+  console.log(this.state.modal);
+}
+
+closeModal = () => {
+  this.setState({
+    modal: 'none'
+  });
+}
+
 postFeedBack = (feedBack) => {
   reviewData.feedBackData.unshift(feedBack);
   this.setState({
@@ -65,6 +94,9 @@ postFeedBack = (feedBack) => {
 
 
 render() {
+
+  this.state.data.modalShow = this.showModal;
+  this.state.data.modalClose = this.closeModal;
 
   let page;
 
@@ -87,6 +119,8 @@ render() {
 
     return (
       <div className="App">
+
+        <Response style={this.state.modal} />
 
         <div className="wrapper">
           <header>
@@ -173,9 +207,9 @@ render() {
             <div className="footer-nav-bar">
               <div className="inner">
                 <nav className="footer-nav-bar-links">
-                  <a href="">Terms & Conditions</a>
+                  <a href="/">Terms & Conditions</a>
                   <div className="report">
-                    <a href="">Report</a>
+                    <a href="/">Report</a>
                   </div>
                 </nav>
               </div>
