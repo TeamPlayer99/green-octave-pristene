@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'drop-down-arrow';
+  src:  url('fonts/drop-down-arrow.eot?jjn8h4');
+  src:  url('fonts/drop-down-arrow.eot?jjn8h4#iefix') format('embedded-opentype'),
+    url('fonts/drop-down-arrow.ttf?jjn8h4') format('truetype'),
+    url('fonts/drop-down-arrow.woff?jjn8h4') format('woff'),
+    url('fonts/drop-down-arrow.svg?jjn8h4#drop-down-arrow') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'drop-down-arrow' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-drop-down-arrow:before {
+  content: "\e900";
+}

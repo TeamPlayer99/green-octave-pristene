@@ -5,7 +5,7 @@ class Responses extends Component {
         return (
             <div id="overlay" style={{display:this.props.style}}>
     
-            <div className="overlay-panel">
+            <div onClick={this.props.close} className="overlay-panel">
                 <div className="inner">
     
                     <div className="reviews-container">

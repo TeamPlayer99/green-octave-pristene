@@ -63,7 +63,7 @@ class Feedback extends Component {
                     <div className="feedback-name">
                         <input value={this.state.name}
                             onChange={this.updateNameChange} 
-                                className="input" 
+                                className="input feedback-input" 
                                     type="text" 
                                         id="feedback-name-input" 
                                             placeholder="Name" />
@@ -91,7 +91,7 @@ class Feedback extends Component {
                         </div>
                         <div className="float-right">
                             <div className="drop-down">
-                                <select id="filters" name="filters">
+                                <select className="browser-default custom-select" id="filters" name="filters">
                                     <option value="Most Recent">Most Recent</option>
                                     <option value="Oldest">Oldest</option>
                                     <option value="Name">Name</option>

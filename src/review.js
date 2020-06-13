@@ -26,7 +26,7 @@ class Review extends Component {
                         </div>
                         <div className="float-right">
                             <div className="drop-down">
-                                <select id="filters" name="filters">
+                                <select className="browser-default custom-select" id="filters" name="filters">
                                     <option value="Most Recent">Most Recent</option>
                                     <option value="Oldest">Oldest</option>
                                     <option value="Name">Name</option>
@@ -76,10 +76,10 @@ class Review extends Component {
                             <div className="likes">
                                 <div className="like-yes">Yes</div>
                                 <div className="like-yes-icon">
-                                    <img className="like-icon" src={require("./images/like-yes-svg.svg")} alt="" />
+                                    <img onClick={this.props.like} className="like-icon" src={require("./images/like-yes-svg.svg")} alt="" />
                                 </div>
                                 <div className="like-no">No</div>
-                                <div className="like-no-icon"><img className="like-icon" src={require("./images/like-no-svg.svg")} alt="" /></div>
+                                <div className="like-no-icon"><img onClick={this.props.disLike} className="like-icon" src={require("./images/like-no-svg.svg")} alt="" /></div>
                             </div>
                             <div className="like-values">
                                 <div className="like-value">({this.props.data.likes})</div>
