@@ -5,7 +5,7 @@ class Tags extends Component {
         return (
             <ul className="tags">
                 {this.props.tags.map(tag => (
-                    <li><a href="">{tag}</a></li>
+                    <li><a href="/">{tag}</a></li>
                 ))}     
             </ul>
         );
