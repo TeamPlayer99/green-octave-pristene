@@ -162,7 +162,7 @@ class Home extends Component {
                                             <input type="radio" value="" name="category" /> Parkers and Movers
             </div>
                                         <div className="spread-info mt2">
-                                            <h6>Transport Types</h6><i className="fas fa-sort-down fa-xs"></i>
+                                            <h6>Transport Types</h6>
                                         </div>
                                         <div>
                                             <input type="checkbox" value="" name="category" /> Fleet Owner

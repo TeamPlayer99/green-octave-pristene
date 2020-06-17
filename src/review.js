@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Tags from './tags';
+import ReviewPosts from './reviewPosts';
 
 
 
@@ -9,19 +10,21 @@ class Review extends Component {
             <div className="right-panel-container">
                 <div className="inner">
                     <div className="review-heading">
-                        Reviews ({this.props.data.reviewNumber})
+                        Reviews ({this.props.data.reviews.length})
                                       </div>
                     <div className="ratings-panel">
                         <div className="float-left">
                             <div className="rating-value">
-                                {this.props.data.reviewRating}
+                                {this.props.data.reviewRating + ".0"}
                             </div>
-                            <div className="rating-star">
-                                <span><i className="fa fa-star fa-lg"></i></span>
-                                <span><i className="fa fa-star fa-lg"></i></span>
-                                <span><i className="fa fa-star fa-lg"></i></span>
-                                <span><i className="fa fa-star fa-lg"></i></span>
-                                <span><i className="fa fa-star fa-lg"></i></span>
+                            <div onClick={this.props.openRate} className="rating-star">
+                            {
+                                    
+                                    this.props.data.stars.map((item) => (
+                                        <span><i className={item.className}></i></span>
+                                    ))
+                            }
+                             
                             </div>
                         </div>
                         <div className="float-right">
@@ -44,49 +47,7 @@ class Review extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="reviews-container">
-                        <div className="inner">
-                            <div className="review-header">
-                                <div className="float-right review-text response-text">
-                                    {this.props.data.date}
-                                </div>
-                                <div className="float-left">
-                                    {this.props.data.name}
-                                </div>
-                            </div>
-                            <div className="rating-star-small">
-                                <span><i className="fa fa-star fa-sm"></i></span>
-                                <span><i className="fa fa-star fa-sm"></i></span>
-                                <span><i className="fa fa-star fa-sm"></i></span>
-                                <span><i className="fa fa-star fa-sm"></i></span>
-                                <span><i className="fa fa-star fa-sm"></i></span>
-                            </div>
-                            <div className="review-tile review-text">
-                                {this.props.data.title}
-                            </div>
-                            <div className="review review-text">
-                                {this.props.data.reviewText}
-                            </div>
-                            <div className="response">
-                                <div className="response-text">Was This Review Helpful?</div>
-                                <div onClick={this.props.data.modalShow} className="response-value unselectable">
-                                    Responses ({this.props.data.responseNumber})
-                                                  </div>
-                            </div>
-                            <div className="likes">
-                                <div className="like-yes">Yes</div>
-                                <div className="like-yes-icon">
-                                    <img onClick={this.props.like} className="like-icon" src={require("./images/like-yes-svg.svg")} alt="" />
-                                </div>
-                                <div className="like-no">No</div>
-                                <div className="like-no-icon"><img onClick={this.props.disLike} className="like-icon" src={require("./images/like-no-svg.svg")} alt="" /></div>
-                            </div>
-                            <div className="like-values">
-                                <div className="like-value">({this.props.data.likes})</div>
-                                <div className="like-value">({this.props.data.disLikes})</div>
-                            </div>
-                        </div>
-                    </div>
+                    <ReviewPosts disLike={this.props.reviewDisLike} like={this.props.reviewLike}  open={this.props.open} reviews={this.props.data.reviews} />
                 </div>
             </div>
         );

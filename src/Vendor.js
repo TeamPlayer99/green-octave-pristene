@@ -8,35 +8,51 @@ import Feedbacks from './feedback';
 import AboutUs from './about-us';
 import Gallery from './gallery';
 import Response from './response';
+import Ratings from './ratings';
+import AddResponse from './addResponse';
 
 var reviewData = {
-  name: "Abdulgafar Jagun",
-  date: "01/05/2020",
-  title: "Review Title",
-  reviewNumber: "1",
   reviewTags: ['All', 'Scratches', 'Communication', 'Weather', 'Problem', 'Condition'],
-  reviewRating: "1.5",
-  reviewText: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-  responseNumber: "20",
-  responses: [{
+  reviewRating: 1,
+  stars: [],
+  reviewNumber: 1,
+  reviews: [{
     name: "Abdulgafar Jagun",
-    text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+    date: "01/05/2020",
+    title: "Review Title",
+    reviewText: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    responseNumber: 3,
+    likes: 16,
+    disLikes: 4,
+    rate: 4,
+    stars: [],
+    responses: [
+      {
+        name: "Abdulgafar Jagun",
+        text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      },
+      {
+        name: "Ik Ummuna",
+        text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      },
+      {
+        name: "Sam Akwe",
+        text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      }],
   },
   {
-    name: "Ik Ummuna",
-    text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-  },
-  {
-    name: "Sam Akwe",
-    text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-  }],
-  likes: 15,
-  disLikes: 5,
-  modalShow: {},
-  modalClose: {},
-  feedBackData: [
-    {
+    name: "Abdulgafar Jagun",
+    date: "01/05/2020",
+    title: "Review Title",
+    reviewText: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    responseNumber: 3,
+    likes: 18,
+    disLikes: 2,
+    rate: 3,
+    stars: [],
+    responses: [{
       name: "Abdulgafar Jagun",
+      date: "01/05/2020",
       text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
     },
     {
@@ -45,101 +61,253 @@ var reviewData = {
     },
     {
       name: "Sam Akwe",
+      date: "01/05/2020",
+      text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+    }],
+  }],
+  feedBackData: [
+    {
+      name: "Abdulgafar Jagun",
+      date: "01/05/2020",
+      text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+    },
+    {
+      name: "Ik Ummuna",
+      date: "01/05/2020",
+      text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+    },
+    {
+      name: "Sam Akwe",
+      date: "01/05/2020",
       text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
     },
     {
       name: "Tosin Adefila",
+      date: "01/05/2020",
       text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
     }
   ]
+
+
 }
-
-
 
 class Vendor extends Component {
-
-state = {
-  activePage: 'review',
-  data: reviewData,
-  modal: 'none'
-};
-
-getClicked = (clicked) => {
-  this.setState((prevState) => {
-    return { 
-      activePage: clicked,
-      data: prevState.data
+  constructor(props) {
+    super(props);
+    this.state = {
+      activePage: 'review',
+      data: reviewData,
+      modal: 'none',
+      rateModal: 'none',
+      respondeModal: 'none',
+      selectedReview: reviewData.reviews[0],
+      likedReview: 0
     };
-  });
-};
 
-addLike = () => {
-  this.setState(prevState => ({
-    data: {                   
-        ...prevState.data,    
-        likes: prevState.data.likes++
+    reviewData.stars = [];
+    for (var i = 1; i <= 5; i++) {
+      if (i <= reviewData.reviewRating)
+        reviewData.stars.push({
+          key: 1,
+          className: "fa fa-star fa-lg active"
+        })
+      else
+        reviewData.stars.push({
+          key: 1,
+          className: "fa fa-star fa-lg inactive"
+        })
     }
-}))
-}
-
-addDisLike = () => {
-  this.setState(prevState => ({
-    data: {                   
-        ...prevState.data,    
-        disLikes: prevState.data.disLikes++
-    }
-}))
-}
-
-showModal = () => {
-  this.setState({
-    modal: 'block'
-  });
-  console.log(this.state.modal);
-}
-
-closeModal = () => {
-  this.setState({
-    modal: 'none'
-  });
-}
-
-postFeedBack = (feedBack) => {
-  reviewData.feedBackData.unshift(feedBack);
-  this.setState({
-    data: reviewData
-  });
-};
-
-
-render() {
-
-  this.state.data.modalShow = this.showModal;
-  this.state.data.modalClose = this.closeModal;
-
-  let page;
-
-  switch(this.state.activePage) {
-    case 'review':
-      page = <Review like={this.addLike} disLike={this.addDisLike} data={this.state.data}/>;
-      break;
-    case 'feedback':
-      page = <Feedbacks addFeed={this.postFeedBack} data={this.state.data} />;
-      break;
-    case 'aboutUs':
-      page = <AboutUs data={this.state.data} />;
-      break;
-    case 'gallery':
-      page = <Gallery data={this.state.data} />;
-      break;
-    default:
-      page = <Review data= {this.state.data}/>;
   }
+
+  componentDidUpdate() {
+    reviewData.stars = [];
+    for (var i = 1; i <= 5; i++) {
+      if (i <= reviewData.reviewRating)
+        reviewData.stars.push({
+          key: 1,
+          className: "fa fa-star fa-lg active"
+        })
+      else
+        reviewData.stars.push({
+          key: 1,
+          className: "fa fa-star fa-lg inactive"
+        })
+    }
+  }
+
+  updateSuperStars = () => {
+    reviewData.stars = [];
+    for (var i = 1; i <= 5; i++) {
+      if (i <= reviewData.reviewRating)
+        reviewData.stars.push({
+          key: 1,
+          className: "fa fa-star fa-lg active"
+        })
+      else
+        reviewData.stars.push({
+          key: 1,
+          className: "fa fa-star fa-lg inactive"
+        })
+    }
+  }
+
+  getClicked = (clicked) => {
+    this.setState((prevState) => {
+      return {
+        activePage: clicked,
+        data: prevState.data
+      };
+    });
+  };
+
+  showModal = (review) => {
+    this.setState({
+      modal: 'block',
+      selectedReview: review
+    });
+  }
+
+  closeModal = () => {
+    this.setState({
+      modal: 'none'
+    });
+  }
+
+  showAddResponseModal = () => {
+    this.setState({
+      responseModal: 'block'
+    });
+  }
+
+  closeAddResponseModal = () => {
+    this.setState({
+      responseModal: 'none'
+    });
+  }
+
+  showRateModal = () => {
+    this.setState({
+      rateModal: 'block'
+    });
+  }
+
+  closeRateModal = () => {
+    this.setState({
+      rateModal: 'none'
+    });
+  }
+
+  postFeedBack = (feedBack) => {
+    reviewData.feedBackData.unshift(feedBack);
+    this.setState({
+      data: reviewData
+    });
+  };
+
+  postResponse = (response, index) => {
+    reviewData.review[index].responses.unshift(response);
+    this.setState({
+      data: reviewData
+    });
+  };
+
+  addLike = (index) => {
+    reviewData.reviews[index].likes++;
+    this.setState({
+      data: reviewData,
+      likedReview: index
+    });
+    this.showAddResponseModal();
+  }
+
+  addDisLike = (index) => {
+    reviewData.reviews[index].disLikes++;
+    this.setState({
+      data: reviewData,
+      likedReview: index
+    });
+    this.showAddResponseModal();
+  }
+
+  setStars = (review, className) => {
+    review.stars = [];
+    for (var i = 1; i <= 5; i++) {
+      if (i <= review.rate)
+        review.stars.push({
+          key: 1,
+          className: className + " active"
+        })
+      else
+        review.stars.push({
+          key: 1,
+          className: className + " inactive"
+        })
+    }
+  }
+
+  postReview = (review) => {
+    var totalRate = 0;
+    this.setStars(review, "fa fa-star fa-sm");
+    reviewData.reviews.unshift(review);
+    reviewData.reviews.forEach(review => {
+      totalRate += review.rate;
+      console.log(totalRate + " " + review.rate);
+    });
+    reviewData.reviewRating = totalRate / reviewData.reviews.length;
+    reviewData.reviewRating = reviewData.reviewRating.toFixed(0);
+    this.updateSuperStars();
+    this.setState({
+      data: reviewData
+    });
+  }
+
+  getClickedStar = (value) => {
+    this.setState((prevState) => {
+      prevState.rates.forEach(element => {
+        if (element.key <= value)
+          element.className = "fa fa-star fa-2x active"
+
+        else
+          element.className = "fa fa-star fa-2x inactive"
+      });
+      return ({
+        rate: value,
+        rates: prevState.rates
+      });
+    });
+  }
+
+  render() {
+
+    let page;
+
+    switch (this.state.activePage) {
+      case 'review':
+        page = <Review reviewDisLike={this.addDisLike} reviewLike={this.addLike} openRate={this.showRateModal} open={this.showModal} data={this.state.data} />;
+        break;
+      case 'feedback':
+        page = <Feedbacks addFeed={this.postFeedBack} data={this.state.data} />;
+        break;
+      case 'aboutUs':
+        page = <AboutUs data={this.state.data} />;
+        break;
+      case 'gallery':
+        page = <Gallery data={this.state.data} />;
+        break;
+      default:
+        page = <Review reviewDisLike={this.addDisLike} reviewLike={this.addLike} openRate={this.showRateModal} open={this.showModal} data={this.state.data} />;
+    }
+
+
 
     return (
       <div className="App">
 
-        <Response close={this.closeModal} style={this.state.modal} />
+        <Response selected={this.state.selectedReview} close={this.closeModal} style={this.state.modal} />
+
+        <Ratings addReview={this.postReview} close={this.closeRateModal} style={this.state.rateModal} data={this.state.data} />
+
+        <AddResponse likedReview={this.state.likedReview} addResponse={this.postResponse} close={this.closeAddResponseModal} style={this.state.respondeModal} />
 
         <div className="wrapper">
           <header>
@@ -199,17 +367,17 @@ render() {
               <div className="inner">
                 <nav className="right-panel-nav-bar">
                   <ul>
-                    <li onClick={() => this.getClicked('review')} 
-                    className={ this.state.activePage === 'review' ? "active-button unselectable" : "notActive unselectable"}>
+                    <li onClick={() => this.getClicked('review')}
+                      className={this.state.activePage === 'review' ? "active-button unselectable" : "notActive unselectable"}>
                       Reviews</li>
                     <li onClick={() => this.getClicked('feedback')}
-                    className={ this.state.activePage === 'feedback' ? "active-button unselectable" : "notActive unselectable"}>
+                      className={this.state.activePage === 'feedback' ? "active-button unselectable" : "notActive unselectable"}>
                       Feedbacks</li>
                     <li onClick={() => this.getClicked('aboutUs')}
-                    className={ this.state.activePage === 'aboutUs' ? "active-button unselectable" : "notActive unselectable"}>
+                      className={this.state.activePage === 'aboutUs' ? "active-button unselectable" : "notActive unselectable"}>
                       About us</li>
                     <li onClick={() => this.getClicked('gallery')}
-                    className={ this.state.activePage === 'gallery' ? "active-button unselectable" : "notActive unselectable"}>
+                      className={this.state.activePage === 'gallery' ? "active-button unselectable" : "notActive unselectable"}>
                       Gallery</li>
                   </ul>
                 </nav>
