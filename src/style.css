@@ -82,13 +82,30 @@ body {
     cursor: default;
 }
 
+.response-overlay-text {
+    text-align: center;
+}
+
+.response-overlay-panel {
+    display: flex;
+    width: 65%;
+    max-height: 85%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
 #ratings-review {
+    height: 30%;
     margin-top: 10px;
     display: none;
     margin-bottom: 15px;
 }
 
 #response-box {
+    height: 30%;
     margin-top: 10px;
     display: unset;
     margin-bottom: 15px;

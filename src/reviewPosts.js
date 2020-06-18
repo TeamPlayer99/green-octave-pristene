@@ -66,7 +66,7 @@ class ReviewPosts extends Component {
                         <div className="response">
                             <div className="response-text">Was This Review Helpful?</div>
                             <div onClick={() => this.props.open(review)} className="response-value unselectable">
-                                Responses ({review.responseNumber})
+                                Responses ({review.responses.length})
                                                   </div>
                         </div>
                         <div className="likes">

@@ -99,9 +99,10 @@ class Vendor extends Component {
       data: reviewData,
       modal: 'none',
       rateModal: 'none',
-      respondeModal: 'none',
+      responseModal: 'none',
       selectedReview: reviewData.reviews[0],
-      likedReview: 0
+      likedIndex: 0,
+      likedType: ''
     };
 
     reviewData.stars = [];
@@ -173,10 +174,15 @@ class Vendor extends Component {
     });
   }
 
-  showAddResponseModal = () => {
-    this.setState({
-      responseModal: 'block'
-    });
+  showAddResponseModal = (index, type) => {
+    setTimeout(() => {
+      this.setState({
+        likedIndex: index,
+        likedType: type,
+        responseModal: 'block'
+      });
+      console.log("clicked reviews index: " + index + " was " + type );
+    }, 3000)
   }
 
   closeAddResponseModal = () => {
@@ -204,8 +210,9 @@ class Vendor extends Component {
     });
   };
 
-  postResponse = (response, index) => {
-    reviewData.review[index].responses.unshift(response);
+  postResponse = (response) => {
+    var index = this.state.likedIndex;
+    reviewData.reviews[index].responses.unshift(response);
     this.setState({
       data: reviewData
     });
@@ -214,19 +221,17 @@ class Vendor extends Component {
   addLike = (index) => {
     reviewData.reviews[index].likes++;
     this.setState({
-      data: reviewData,
-      likedReview: index
+      data: reviewData
     });
-    this.showAddResponseModal();
+    this.showAddResponseModal(index, 'liked');
   }
 
   addDisLike = (index) => {
     reviewData.reviews[index].disLikes++;
     this.setState({
-      data: reviewData,
-      likedReview: index
+      data: reviewData
     });
-    this.showAddResponseModal();
+    this.showAddResponseModal(index, 'disliked');
   }
 
   setStars = (review, className) => {
@@ -277,6 +282,9 @@ class Vendor extends Component {
     });
   }
 
+  goHome = () => {
+  }
+
   render() {
 
     let page;
@@ -307,17 +315,15 @@ class Vendor extends Component {
 
         <Ratings addReview={this.postReview} close={this.closeRateModal} style={this.state.rateModal} data={this.state.data} />
 
-        <AddResponse likedReview={this.state.likedReview} addResponse={this.postResponse} close={this.closeAddResponseModal} style={this.state.respondeModal} />
+        <AddResponse likedIndex={this.state.likedIndex} likedType={this.state.likedType} addResponse={this.postResponse} close={this.closeAddResponseModal} style={this.state.responseModal} />
 
         <div className="wrapper">
           <header>
             <div className="main-nav-bar">
               <div className="inner">
                 <nav className="main-nav-bar-links">
-                  <a href="/">Company</a>
+                  <a onClick={this.goHome} href="/">Directory</a>
                   <a href="/">How It Works</a>
-                  <a href="/">Careers</a>
-                  <a href="/">Press</a>
                   <a href="/">Blog</a>
                 </nav>
               </div>

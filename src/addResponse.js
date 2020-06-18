@@ -8,9 +8,9 @@ class AddResponse extends Component {
             name: "Abdulgafar",
             date: "17/06/2020",
             text: ""
-          }
+        }
 
-          this.updateResponseChange = this.updateResponseChange.bind(this);
+        this.updateResponseChange = this.updateResponseChange.bind(this);
     }
 
     updateResponseChange = (event) => {
@@ -20,7 +20,7 @@ class AddResponse extends Component {
     }
 
     postResponse = () => {
-        this.props.addResponse(this.state, this.props.likedReview);
+        this.props.addResponse(this.state);
         this.setState({
             name: "Abdulgafar Jagun",
             date: "17/06/2020",
@@ -32,20 +32,27 @@ class AddResponse extends Component {
     render() {
         return (
             <div id="respond-overlay" style={{ display: this.props.style }}>
-                <div className="content-holder-ratings">
-                    <div className="feedback-description">
-                        <textarea
-                            value={this.state.text}
-                            onChange={this.updateResponseChange}
-                            className="input"
-                            name=""
-                            id="ratings-review"
-                            cols="30" rows="5"
-                            placeholder="Response">
-                        </textarea>
-                    </div>
-                    <div>
-                        <button onClick={() => this.postResponse()}>Respond</button>
+                <div className="response-overlay-panel">
+                    <div className="info-card-ratings">
+                        <div className="content-holder-ratings">
+                            <div className="response-overlay-text">
+                                Hey! We noticed you {this.props.likedType} this review, please kindly drop a response
+                            </div>
+                            <div className="feedback-description">
+                                <textarea
+                                    value={this.state.text}
+                                    onChange={this.updateResponseChange}
+                                    className="input"
+                                    name=""
+                                    id="response-box"
+                                    cols="30" rows="5"
+                                    placeholder="Response">
+                                </textarea>
+                            </div>
+                            <div>
+                                <button onClick={() => this.postResponse()}>Respond</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
