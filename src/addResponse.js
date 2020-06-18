@@ -36,7 +36,7 @@ class AddResponse extends Component {
                     <div className="info-card-ratings">
                         <div className="content-holder-ratings">
                             <div className="response-overlay-text">
-                                Hey! We noticed you {this.props.likedType} this review, please kindly drop a response
+                                Hey! its not like we are spying on you or anything, but We noticed you {this.props.likedType} this review, please would you care to elaborate by dropping a response. Thanks.
                             </div>
                             <div className="feedback-description">
                                 <textarea
