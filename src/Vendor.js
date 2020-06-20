@@ -11,109 +11,30 @@ import Response from './response';
 import Ratings from './ratings';
 import AddResponse from './addResponse';
 
-var reviewData = {
-  reviewTags: ['All', 'Scratches', 'Communication', 'Weather', 'Problem', 'Condition'],
-  reviewRating: 1,
-  stars: [],
-  reviewNumber: 1,
-  reviews: [{
-    name: "Abdulgafar Jagun",
-    date: "01/05/2020",
-    title: "Review Title",
-    reviewText: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    responseNumber: 3,
-    likes: 16,
-    disLikes: 4,
-    rate: 4,
-    stars: [],
-    responses: [
-      {
-        name: "Abdulgafar Jagun",
-        text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-      },
-      {
-        name: "Ik Ummuna",
-        text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-      },
-      {
-        name: "Sam Akwe",
-        text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-      }],
-  },
-  {
-    name: "Abdulgafar Jagun",
-    date: "01/05/2020",
-    title: "Review Title",
-    reviewText: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    responseNumber: 3,
-    likes: 18,
-    disLikes: 2,
-    rate: 3,
-    stars: [],
-    responses: [{
-      name: "Abdulgafar Jagun",
-      date: "01/05/2020",
-      text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-    },
-    {
-      name: "Ik Ummuna",
-      text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-    },
-    {
-      name: "Sam Akwe",
-      date: "01/05/2020",
-      text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-    }],
-  }],
-  feedBackData: [
-    {
-      name: "Abdulgafar Jagun",
-      date: "01/05/2020",
-      text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-    },
-    {
-      name: "Ik Ummuna",
-      date: "01/05/2020",
-      text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-    },
-    {
-      name: "Sam Akwe",
-      date: "01/05/2020",
-      text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-    },
-    {
-      name: "Tosin Adefila",
-      date: "01/05/2020",
-      text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-    }
-  ]
-
-
-}
 
 class Vendor extends Component {
   constructor(props) {
     super(props);
     this.state = {
       activePage: 'review',
-      data: reviewData,
+      data: this.props.vendor,
       modal: 'none',
       rateModal: 'none',
       responseModal: 'none',
-      selectedReview: reviewData.reviews[0],
+      selectedReview: this.props.vendor.reviews[0],
       likedIndex: 0,
       likedType: ''
     };
 
-    reviewData.stars = [];
+    this.props.vendor.stars = [];
     for (var i = 1; i <= 5; i++) {
-      if (i <= reviewData.reviewRating)
-        reviewData.stars.push({
+      if (i <= this.props.vendor.reviewRating)
+        this.props.vendor.stars.push({
           key: 1,
           className: "fa fa-star fa-lg active"
         })
       else
-        reviewData.stars.push({
+        this.props.vendor.stars.push({
           key: 1,
           className: "fa fa-star fa-lg inactive"
         })
@@ -121,15 +42,15 @@ class Vendor extends Component {
   }
 
   componentDidUpdate() {
-    reviewData.stars = [];
+    this.props.vendor.stars = [];
     for (var i = 1; i <= 5; i++) {
-      if (i <= reviewData.reviewRating)
-        reviewData.stars.push({
+      if (i <= this.props.vendor.reviewRating)
+        this.props.vendor.stars.push({
           key: 1,
           className: "fa fa-star fa-lg active"
         })
       else
-        reviewData.stars.push({
+        this.props.vendor.stars.push({
           key: 1,
           className: "fa fa-star fa-lg inactive"
         })
@@ -137,15 +58,15 @@ class Vendor extends Component {
   }
 
   updateSuperStars = () => {
-    reviewData.stars = [];
+    this.props.vendor.stars = [];
     for (var i = 1; i <= 5; i++) {
-      if (i <= reviewData.reviewRating)
-        reviewData.stars.push({
+      if (i <= this.props.vendor.reviewRating)
+        this.props.vendor.stars.push({
           key: 1,
           className: "fa fa-star fa-lg active"
         })
       else
-        reviewData.stars.push({
+        this.props.vendor.stars.push({
           key: 1,
           className: "fa fa-star fa-lg inactive"
         })
@@ -181,7 +102,7 @@ class Vendor extends Component {
         likedType: type,
         responseModal: 'block'
       });
-      console.log("clicked reviews index: " + index + " was " + type );
+      console.log("clicked reviews index: " + index + " was " + type);
     }, 3000)
   }
 
@@ -204,32 +125,32 @@ class Vendor extends Component {
   }
 
   postFeedBack = (feedBack) => {
-    reviewData.feedBackData.unshift(feedBack);
+    this.props.vendor.feedBackData.unshift(feedBack);
     this.setState({
-      data: reviewData
+      data: this.props.vendor
     });
   };
 
   postResponse = (response) => {
     var index = this.state.likedIndex;
-    reviewData.reviews[index].responses.unshift(response);
+    this.props.vendor.reviews[index].responses.unshift(response);
     this.setState({
-      data: reviewData
+      data: this.props.vendor
     });
   };
 
   addLike = (index) => {
-    reviewData.reviews[index].likes++;
+    this.props.vendor.reviews[index].likes++;
     this.setState({
-      data: reviewData
+      data: this.props.vendor
     });
     this.showAddResponseModal(index, 'liked');
   }
 
   addDisLike = (index) => {
-    reviewData.reviews[index].disLikes++;
+    this.props.vendor.reviews[index].disLikes++;
     this.setState({
-      data: reviewData
+      data: this.props.vendor
     });
     this.showAddResponseModal(index, 'disliked');
   }
@@ -253,16 +174,16 @@ class Vendor extends Component {
   postReview = (review) => {
     var totalRate = 0;
     this.setStars(review, "fa fa-star fa-sm");
-    reviewData.reviews.unshift(review);
-    reviewData.reviews.forEach(review => {
+    this.props.vendor.reviews.unshift(review);
+    this.props.vendor.reviews.forEach(review => {
       totalRate += review.rate;
       console.log(totalRate + " " + review.rate);
     });
-    reviewData.reviewRating = totalRate / reviewData.reviews.length;
-    reviewData.reviewRating = reviewData.reviewRating.toFixed(0);
+    this.props.vendor.reviewRating = totalRate / this.props.vendor.reviews.length;
+    this.props.vendor.reviewRating = this.props.vendor.reviewRating.toFixed(0);
     this.updateSuperStars();
     this.setState({
-      data: reviewData
+      data: this.props.vendor
     });
   }
 
@@ -334,13 +255,21 @@ class Vendor extends Component {
             <div className="column left-column">
               <div className="dp-container">
                 <div className="dp-image">
-                  <img className="round" src={require("./images/Ellipse 5.jpg")} alt="" />
+                  <img className="round" src={require(`${this.props.vendor.logoUrl}`)} alt="" />
                 </div>
-                <div className="verify-image">
-                  <img className="round" src={require("./images/Vector.jpg")} alt="" />
-                </div>
+                {
+                  this.props.vendor.verified ?
+                    <div className="verification-review">
+                      <span className="ratings fa-stack fa-2x">
+                        <i className="fas fa-certificate fa-stack-2x"></i>
+                        <i className="fas fa-check fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </div>
+                    :
+                    ''
+                }
               </div>
-              <div className="vendor-name">Kangaroo Transport</div>
+              <div className="vendor-name">{this.props.vendor.vendorName}</div>
               <div className="vendor-type">Car and Transport Provider</div>
               <div className="vendor-info">Information</div>
               <div className="trucks">
