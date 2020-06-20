@@ -21,10 +21,6 @@ class Home extends Component {
 
     }
 
-    getImage = (url) => {
-        require(url);
-    }
-
     setStars = (review, className) => {
         review.stars = [];
         for (var i = 1; i <= 5; i++) {
