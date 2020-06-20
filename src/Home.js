@@ -21,15 +21,7 @@ class Home extends Component {
         });
 
     }
-
-<<<<<<< HEAD
-=======
-    getImage = (url) => {
-        require(url);
-    }
-
->>>>>>> 892777b063a98ee9d7b84fb749faaea9aca0b544
-    setStars = (review, className) => {
+  setStars = (review, className) => {
         review.stars = [];
         for (var i = 1; i <= 5; i++) {
             if (i <= review.reviewRating)
