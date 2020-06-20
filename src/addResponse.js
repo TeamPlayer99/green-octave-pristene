@@ -52,6 +52,9 @@ class AddResponse extends Component {
                             <div>
                                 <button onClick={() => this.postResponse()}>Respond</button>
                             </div>
+                            <div className="close-button">
+                                <i class="fa fa-times-circle fa-lg" aria-hidden="true"></i>
+                            </div>
                         </div>
                     </div>
                 </div>

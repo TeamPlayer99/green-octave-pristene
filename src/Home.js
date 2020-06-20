@@ -2,9 +2,45 @@ import React, { Component } from "react";
 import './style.css';
 import './xvu6cdg.css';
 import './css/all.min.css';
-import './css/font-awesome.min.css';
+
 
 class Home extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+
+        }
+        this.initialize();
+    }
+
+    initialize = () => {
+        this.props.data.vendors.forEach(element => {
+            this.setStars(element, "fa fa-star");
+            console.log(element);
+        });
+
+    }
+
+    getImage = (url) => {
+        require(url);
+    }
+
+    setStars = (review, className) => {
+        review.stars = [];
+        for (var i = 1; i <= 5; i++) {
+            if (i <= review.reviewRating)
+                review.stars.push({
+                    key: i,
+                    className: className + " active"
+                })
+            else
+                review.stars.push({
+                    key: i,
+                    className: className + " inactive"
+                })
+        }
+    }
+
     render() {
         return (
             <div className="App">
@@ -191,217 +227,59 @@ class Home extends Component {
                             </div>
                             <div className="main-content">
                                 <div className="row">
-                                    <div className="col-lg-4 col-md-6">
-                                        <div className="info-card">
-                                            <div className="image-holder">
-                                                <img src={require('./images/place-holder-new.png')} style={{ width: '100%' }} alt="" />
-                                            </div>
-                                            <div className="verification">
-                                                <span class="fa-stack fa-2x">
-                                                    <i class="fas fa-certificate fa-stack-2x"></i>
-                                                    <i class="fas fa-check fa-stack-1x fa-inverse"></i>
-                                                </span>
-                                            </div>
-                                            <div className="content-holder">
-                                                <h6>Kangaroo Transport</h6>
-                                                <p><small>Address</small></p>
-                                                <div>
-                                                    <button>View</button>
-                                                </div>
-                                                <p>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star inactive"></span>
-                                                </p>
-                                                <div className="container spread-info reviews">
-                                                    <div>
-                                                        <span className="reduced bold">145 reviews</span>
+
+                                    {
+                                        this.props.data.vendors.map((item) => (
+
+                                            <div className="col-lg-4 col-md-6">
+                                                <div className="info-card">
+                                                    <div className="image-holder">
+                                                        <img src={require(`${item.logoUrl}`)}  alt="" />
                                                     </div>
-                                                    <div>
-                                                        <i className="fas fa-comment-dots"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-6">
-                                        <div className="info-card">
-                                            <div className="image-holder">
-                                                <img src={require('./images/place-holder-new.png')} style={{ width: '100%' }} alt="" />
-                                            </div>
-                                            <div className="verification">
-                                                <span class="fa-stack fa-2x">
-                                                    <i class="fas fa-certificate fa-stack-2x"></i>
-                                                    <i class="fas fa-check fa-stack-1x fa-inverse"></i>
-                                                </span>
-                                            </div>
-                                            <div className="content-holder">
-                                                <h6>Kangaroo Transport</h6>
-                                                <p><small>Address</small></p>
-                                                <div>
-                                                    <button onClick={() => this.props.select('vendor')}>View</button>
-                                                </div>
-                                                <p>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star inactive"></span>
-                                                </p>
-                                                <div className="container spread-info reviews">
-                                                    <div>
-                                                        <span className="reduced bold">145 reviews</span>
-                                                    </div>
-                                                    <div>
-                                                        <i className="fas fa-comment-dots"></i>
+                                                    {
+                                                        item.verified ?
+                                                            <div className="verification">
+                                                                <span className="fa-stack fa-2x">
+                                                                    <i className="fas fa-certificate fa-stack-2x"></i>
+                                                                    <i className="fas fa-check fa-stack-1x fa-inverse"></i>
+                                                                </span>
+                                                            </div>
+                                                            :
+                                                            ''
+                                                    }
+                                                    <div className="content-holder">
+                                                        <h6>{item.vendorName}</h6>
+                                                        <p><small>{item.address}</small></p>
+                                                        <div>
+                                                            <button onClick={() => this.props.select(item)} >View</button>
+                                                        </div>
+                                                        <p>
+                                                            {
+                                                                item.stars.map((star) => (
+                                                                    <span key={star.key}><i className={star.className}></i></span>
+                                                                ))
+                                                            }
+                                                            
+                                                        </p>
+                                                        <div className="container spread-info reviews">
+                                                            <div>
+                                                                <span className="reduced bold">{item.reviews.length + " "} reviews</span>
+                                                            </div>
+                                                            <div>
+                                                                <i className="fas fa-comment-dots"></i>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-6">
-                                        <div className="info-card">
-                                            <div className="image-holder">
-                                                <img src={require('./images/place-holder-new.png')} style={{ width: '100%' }} alt="" />
-                                            </div>
-                                            <div className="verification">
-                                                <span class="fa-stack fa-2x">
-                                                    <i class="fas fa-certificate fa-stack-2x"></i>
-                                                    <i class="fas fa-check fa-stack-1x fa-inverse"></i>
-                                                </span>
-                                            </div>
-                                            
-                                            <div className="content-holder">
-                                                <h6>Kangaroo Transport</h6>
-                                                <p><small>Address</small></p>
-                                                <div>
-                                                    <button>View</button>
-                                                </div>
-                                                <p>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star inactive"></span>
-                                                </p>
-                                                <div className="container spread-info reviews">
-                                                    <div>
-                                                        <span className="reduced bold">145 reviews</span>
-                                                    </div>
-                                                    <div>
-                                                        <i className="fas fa-comment-dots"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-6">
-                                        <div className="info-card">
-                                            <div className="image-holder">
-                                                <img src={require('./images/place-holder-new.png')} style={{ width: '100%' }} alt="" />
-                                            </div>
-                                            <div className="verification">
-                                                <span class="fa-stack fa-2x">
-                                                    <i class="fas fa-certificate fa-stack-2x"></i>
-                                                    <i class="fas fa-check fa-stack-1x fa-inverse"></i>
-                                                </span>
-                                            </div>
-                                            <div className="content-holder">
-                                                <h6>Kangaroo Transport</h6>
-                                                <p><small>Address</small></p>
-                                                <div>
-                                                    <button>View</button>
-                                                </div>
-                                                <p>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star inactive"></span>
-                                                </p>
-                                                <div className="container spread-info reviews">
-                                                    <div>
-                                                        <span className="reduced bold">145 reviews</span>
-                                                    </div>
-                                                    <div>
-                                                        <i className="fas fa-comment-dots"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-6">
-                                        <div className="info-card">
-                                            <div className="image-holder">
-                                                <img src={require('./images/place-holder-new.png')} style={{ width: '100%' }} alt="" />
-                                            </div>
-                                            <div className="verification">
-                                                <span class="fa-stack fa-2x">
-                                                    <i class="fas fa-certificate fa-stack-2x"></i>
-                                                    <i class="fas fa-check fa-stack-1x fa-inverse"></i>
-                                                </span>
-                                            </div>
-                                            <div className="content-holder">
-                                                <h6>Kangaroo Transport</h6>
-                                                <p><small>Address</small></p>
-                                                <div>
-                                                    <button>View</button>
-                                                </div>
-                                                <p>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star inactive"></span>
-                                                </p>
-                                                <div className="container spread-info reviews">
-                                                    <div>
-                                                        <span className="reduced bold">145 reviews</span>
-                                                    </div>
-                                                    <div>
-                                                        <i className="fas fa-comment-dots"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-6">
-                                        <div className="info-card">
-                                            <div className="image-holder">
-                                                <img src={require('./images/place-holder-new.png')} style={{ width: '100%' }} alt="" />
-                                            </div>
-                                            <div className="verification">
-                                                <span class="fa-stack fa-2x">
-                                                    <i class="fas fa-certificate fa-stack-2x"></i>
-                                                    <i class="fas fa-check fa-stack-1x fa-inverse"></i>
-                                                </span>
-                                            </div>
-                                            <div className="content-holder">
-                                                <h6>Kangaroo Transport</h6>
-                                                <p><small>Address</small></p>
-                                                <div>
-                                                    <button>View</button>
-                                                </div>
-                                                <p>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star active"></span>
-                                                    <span className="fa fa-star inactive"></span>
-                                                </p>
-                                                <div className="container spread-info reviews">
-                                                    <div>
-                                                        <span className="reduced bold">145 reviews</span>
-                                                    </div>
-                                                    <div>
-                                                        <i className="fas fa-comment-dots"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
+                                        ))
+                                    }
+
+
+
+
+
                                 </div>
                             </div>
                         </div>
