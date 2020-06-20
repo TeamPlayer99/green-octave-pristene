@@ -4,6 +4,7 @@ import './xvu6cdg.css';
 import './css/all.min.css';
 
 
+
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -21,6 +22,13 @@ class Home extends Component {
 
     }
 
+<<<<<<< HEAD
+=======
+    getImage = (url) => {
+        require(url);
+    }
+
+>>>>>>> 892777b063a98ee9d7b84fb749faaea9aca0b544
     setStars = (review, className) => {
         review.stars = [];
         for (var i = 1; i <= 5; i++) {
