@@ -155,6 +155,12 @@ body {
     float: right;
 }
 
+.star-rating-value-float-left::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 .star-rating-panel {
     height: 100%;
     margin: 0;
@@ -256,11 +262,23 @@ a {
     /* margin-right: 1.875rem; */
 }
 
+.left-column::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 .right-column {
     width: 74.2%;
     min-width: 22.9%;
     height: 100%;
     float: right;
+}
+
+.right-column::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .right-panel-container {
@@ -294,8 +312,20 @@ a {
     float: left;
 }
 
+.ratings-panel div::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 .float-left {
     width: 70%;
+}
+
+.float-left::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .float-right {
@@ -304,9 +334,21 @@ a {
     width: 30%;
 }
 
+.float-right::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 .float-right div {
     float: right;
     display: flex;
+}
+
+.float-right div::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .rating-value {
@@ -326,6 +368,12 @@ a {
     align-items: center;
 }
 
+.rating-star::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 .rating-star-small {
     margin-top: 6px;
     margin-bottom: 32.15px;
@@ -334,6 +382,12 @@ a {
     float: left;
     display: flex;
     align-items: center;
+}
+
+.rating-star-small::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .reviews-container {
@@ -365,6 +419,14 @@ a {
     letter-spacing: 0.05em;
 }
 
+.align-text-left {
+    text-align: left;
+}
+
+.align-text-right {
+    text-align: right;
+}
+
 .response div {
     font-style: normal;
     font-weight: bold;
@@ -372,6 +434,12 @@ a {
     line-height: 12px;
     letter-spacing: 0.05em;
     float: left;
+}
+
+.response div::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .response::after {
@@ -397,6 +465,12 @@ a {
     letter-spacing: 0.05em;
     margin-top: 0.875rem;
     display: flex;
+}
+
+.likes div::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .likes::after {
@@ -459,6 +533,12 @@ a {
     margin-top: 5px;
     margin-bottom: 30px;
     display: flex;
+}
+
+.like-values div::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .like-values::after {
@@ -847,6 +927,12 @@ nav ul li {
     list-style: none;
 }
 
+.tags::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 .tags li,
 .tags a {
     float: left;
@@ -855,6 +941,12 @@ nav ul li {
     font-weight: 300;
     font-size: 0.6875rem;
     margin-top: 0.5rem;
+}
+
+.tags a::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .tags a {
@@ -976,6 +1068,12 @@ nav ul li {
 
 .grid-item-bottom-inner-categories {
     float: left;
+}
+
+.grid-item-bottom-inner-categories::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .read-more {
@@ -1244,6 +1342,12 @@ nav ul li {
     font-size: 14px;
 }
 
+.sort-area::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 @media(max-width: 995px) {
     .search-section {
         margin-top: 10px;
@@ -1459,6 +1563,12 @@ div.spread-info.mt2 {
 
 .spread-info.mt2 i {
     float: right;
+}
+
+.spread-info.mt2 i::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .filter-button {

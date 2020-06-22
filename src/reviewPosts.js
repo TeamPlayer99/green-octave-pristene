@@ -43,7 +43,7 @@ class ReviewPosts extends Component {
                 <div className="reviews-container">
                     <div className="inner">
                         <div className="review-header">
-                            <div className="float-right review-text response-text">
+                            <div className="float-right review-text response-text align-text-right">
                                 {review.date}
                             </div>
                             <div className="float-left">
@@ -57,7 +57,7 @@ class ReviewPosts extends Component {
                                 ))
                             }
                         </div>
-                        <div className="review-tile review-text">
+                        <div className="review-tile review-text align-text-left">
                             {review.title}
                         </div>
                         <div className="review review-text">

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import './style.css';
 import './xvu6cdg.css';
 import './css/all.min.css';
+import './css/font-awesome.min.css';
 
 
 
