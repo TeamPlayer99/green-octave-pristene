@@ -81,11 +81,6 @@ body {
     z-index: 2;
     cursor: default;
 }
-
-.response-overlay-text {
-    text-align: left;
-}
-
 .close-button {
     font-size: 30px;
     position: absolute;
